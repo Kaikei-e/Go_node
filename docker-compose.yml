@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  server:
+    build: ./Go
+    container_name: server
+    tty: true
+    ports:
+      - 8082:8080
+
+  front:
+    build: ./node
+    container_name:  front
+    tty:  true
