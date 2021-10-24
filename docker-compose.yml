@@ -5,15 +5,8 @@ services:
     build: ./Go
     container_name: server
     tty: true
-<<<<<<< HEAD
-    volumes: 
-      - ./Go/app:/app
-    networks: 
-      - go-node
-=======
     volumes:
       - ./Go/app/:/app
->>>>>>> 02b911826e7b06f86d5d79fe0bacaf61018080a1
     ports:
       - 9000:9000
 
@@ -21,7 +14,6 @@ services:
     build: ./node
     container_name:  front
     tty:  true
-<<<<<<< HEAD
     volumes: 
       - ./node/app:/app
     networks:
@@ -32,7 +24,3 @@ services:
 networks:
   go-node:
     driver: bridge
-=======
-    volumes:
-      - ./node/app/:/app
->>>>>>> 02b911826e7b06f86d5d79fe0bacaf61018080a1
