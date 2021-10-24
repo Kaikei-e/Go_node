@@ -1,14 +1,28 @@
-version: "3.8"
+version: "3"
 
 services:
   server:
     build: ./Go
     container_name: server
     tty: true
+    volumes: 
+      - ./Go/app:/app
+    networks: 
+      - go-node
     ports:
-      - 8082:8080
+      - 9000:9000
 
   front:
     build: ./node
     container_name:  front
     tty:  true
+    volumes: 
+      - ./node/app:/app
+    networks:
+      - go-node
+    ports:
+      - 3000:3000
+
+networks:
+  go-node:
+    driver: bridge
