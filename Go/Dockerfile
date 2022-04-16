@@ -1,10 +1,7 @@
-FROM golang:1.18.2-buster
+FROM golang:1.18.1
 
 WORKDIR /app
 
 COPY ./app /app
-
-RUN apt update \
-  && apt upgrade -y
 
 ENV PATH $PATH:/usr/local/go/bin
