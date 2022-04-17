@@ -9,6 +9,11 @@ services:
       - ./Go/app/:/app
     ports:
       - 9000:9000
+    networks:
+      go-node:
+        ipv4_address: 192.168.1.101
+
+      
 
   front:
     build: ./node
@@ -16,11 +21,18 @@ services:
     tty:  true
     volumes: 
       - ./node/app:/app
-    networks:
-      - go-node
     ports:
       - 3000:3000
+    
+    networks:
+      go-node:
+        ipv4_address: 192.168.1.102
+
 
 networks:
   go-node:
-    driver: bridge
+    ipam:
+      
+      driver: default
+      config:
+        - subnet: 192.168.1.0/24
