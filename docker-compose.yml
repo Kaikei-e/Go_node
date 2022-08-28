@@ -8,31 +8,28 @@ services:
     volumes:
       - ./Go/app/:/app
     ports:
-      - 9000:9000
+      - 8090:8090
     networks:
       go-node:
         ipv4_address: 192.168.1.101
 
-      
-
   front:
     build: ./node
-    container_name:  front
-    tty:  true
-    volumes: 
+    container_name: front
+    tty: true
+    volumes:
       - ./node/app:/app
     ports:
-      - 3000:3000
-    
+      - 3020:3020
+
     networks:
       go-node:
         ipv4_address: 192.168.1.102
 
-
 networks:
   go-node:
     ipam:
-      
+
       driver: default
       config:
         - subnet: 192.168.1.0/24
